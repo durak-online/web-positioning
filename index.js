@@ -11,28 +11,30 @@ const closeModalBtn = document.querySelector('.buttonCloseModal');
 const modalOverlay = document.querySelector('.modalOverlay');
 const progressClip = document.querySelector('.progressClip');
 
-const DURATION = 3000;
-let animationId = 0;
+const time = 3000;
+let timerId = 0;
 
 function setProgress(value) {
     progressClip.style.clipPath = 'inset(0 ' + (100 - value * 100) + '% 0 0)';
 }
 
 function animateProgressBar() {
-    cancelAnimationFrame(animationId);
+    clearInterval(timerId);
     setProgress(0);
-    const startTime = performance.now();
 
-    function frame(currentTime) {
-        const progress = Math.min((currentTime - startTime) / DURATION, 1);
+    let elapsed = 0;
+    const interval = 30;
+
+    timerId = setInterval(function () {
+        elapsed += interval;
+
+        const progress = Math.min(elapsed / time, 1);
         setProgress(progress);
 
-        if (progress < 1) {
-            animationId = requestAnimationFrame(frame);
+        if (progress >= 1) {
+            clearInterval(timerId);
         }
-    }
-
-    animationId = requestAnimationFrame(frame);
+    }, interval);
 }
 
 openModalBtn.addEventListener('click', function () {
