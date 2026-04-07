@@ -25,6 +25,39 @@
             <p>
                 Это пример модального окна. Оно открывается по кнопке и закрывается по крестику.
             </p>
+
+            <section class="accordion">
+                <div class="accordion-item">
+                    <input type="checkbox" id="accordion1" class="accordion-input">
+                    <label for="accordion1" class="accordion-label">📘 Что такое аккордеон?</label>
+                    <div class="accordion-content">
+                        <p>Аккордеон (accordion) — это вертикальный набор раскрывающихся блоков. При клике на заголовок
+                            открывается панель с содержимым. Обычно реализуется на JavaScript, но здесь мы используем
+                            только CSS и псевдокласс <code>:checked</code>.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <input type="checkbox" id="accordion2" class="accordion-input">
+                    <label for="accordion2" class="accordion-label">⚙️ Как работает :checked?</label>
+                    <div class="accordion-content">
+                        <p>Скрытый чекбокс переключается при клике на <code>&lt;label&gt;</code>. Когда чекбокс отмечен
+                            (<code>:checked</code>), соседний блок с содержимым получает свойство
+                            <code>max-height</code> с конкретным значением, и он плавно появляется. Так достигается
+                            анимация без единой строчки JS.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <input type="checkbox" id="accordion3" class="accordion-input">
+                    <label for="accordion3" class="accordion-label">🎨 Преимущества подхода</label>
+                    <div class="accordion-content">
+                        <p>Этот метод легковесный, не требует загрузки скриптов, работает даже при отключённом
+                            JavaScript. Подходит для FAQ, справочных разделов, мобильных меню. Главное — правильно
+                            подобрать значение <code>max-height</code>, чтобы анимация была плавной.</p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 

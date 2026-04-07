@@ -96,3 +96,46 @@ body {
 .cube4 {
     background: yellow;
 }
+
+.accordion-item {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.accordion-input {
+    display: none;
+}
+
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.accordion-label::after {
+    content: "▼";
+    color: grey;
+}
+
+.accordion-input:checked + .accordion-label::after {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: lightgrey;
+}
+
+.accordion-content p {
+    padding: 10px;
+    margin: 0;
+}
+
+.accordion-input:checked ~ .accordion-content {
+    max-height: 250px;
+}
